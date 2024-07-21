@@ -13,23 +13,26 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
         rel="stylesheet">
+    {{-- icon --}}
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     @vite(['resources/css/app.css', 'resources/js/app.js'])
     <link rel="stylesheet" href="../css/app.css">
 </head>
 
 <body>
     <nav class="navbar navbar-expand-lg bg-dark navbar-dark">
-        <div class="container">
+        <div class="container d-flex justify-content-center">
             <a class="navbar-brand fw-bold" href="#">Cashed</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
                 aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-                <div class="navbar-nav ms-auto">
+                <div class="navbar-nav">
                     <a class="nav-link {{ request()->routeIs('dashboard') ? 'active' : '' }}" aria-current="page"
                         href="{{ route('dashboard') }}">Dashboard</a>
-                    <a class="nav-link {{ request()->routeIs('orders') ? 'active' : '' }}" href="#">Order</a>
+                    <a class="nav-link {{ request()->routeIs('orders.index') ? 'active' : '' }}"
+                        href="{{ route('orders.index') }}">Order</a>
                     <a class="nav-link {{ request()->routeIs('categories.index') ? 'active' : '' }}"
                         href="{{ route('categories.index') }}">Categories</a>
                     <a class="nav-link {{ request()->routeIs('products.index') ? 'active' : '' }}"
@@ -37,6 +40,15 @@
                     <a class="nav-link {{ request()->routeIs('users.index') ? 'active' : '' }}"
                         href="{{ route('users.index') }}">Users</a>
                 </div>
+            </div>
+            <div class="d-flex align-items-center">
+
+                <div class="text-white me-4">{{ auth()->user()->name }}</div>
+                <form action="{{ route('logout') }}" method="post">
+                    @csrf
+                    <button type="submit" class="btn btn-danger">Logout</button>
+
+                </form>
             </div>
         </div>
     </nav>
