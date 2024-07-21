@@ -26,4 +26,11 @@ class AuthController extends Controller
             'email' => 'Email atau password tidak sesuai'
         ])->onlyInput('email');
     }
+
+    public function logout(Request $request)
+    {
+        $request->session()->invalidate();
+
+        return redirect('login');
+    }
 }
