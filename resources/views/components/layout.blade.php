@@ -28,17 +28,22 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-                <div class="navbar-nav">
+                <div class="navbar-nav d-flex gap-2">
                     <a class="nav-link {{ request()->routeIs('dashboard') ? 'active' : '' }}" aria-current="page"
-                        href="{{ route('dashboard') }}">Dashboard</a>
+                        href="{{ route('dashboard') }}"> <i class="bi bi-house-door-fill"></i>
+                        Dashboard</a>
                     <a class="nav-link {{ request()->routeIs('orders.index') ? 'active' : '' }}"
-                        href="{{ route('orders.index') }}">Order</a>
+                        href="{{ route('orders.index') }}"><i class="bi bi-cart3"></i>
+                        Orders</a>
                     <a class="nav-link {{ request()->routeIs('categories.index') ? 'active' : '' }}"
-                        href="{{ route('categories.index') }}">Categories</a>
+                        href="{{ route('categories.index') }}"><i class="bi bi-tags-fill"></i>
+                        Categories</a>
                     <a class="nav-link {{ request()->routeIs('products.index') ? 'active' : '' }}"
-                        href="{{ route('products.index') }}">Products</a>
+                        href="{{ route('products.index') }}"><i class="bi bi-box2-heart"></i>
+                        Products</a>
                     <a class="nav-link {{ request()->routeIs('users.index') ? 'active' : '' }}"
-                        href="{{ route('users.index') }}">Users</a>
+                        href="{{ route('users.index') }}"><i class="bi bi-people-fill"></i>
+                        Users</a>
                 </div>
             </div>
             <div class="d-flex align-items-center">

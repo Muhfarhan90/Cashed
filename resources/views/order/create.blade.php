@@ -30,7 +30,7 @@
                                     class="text-decoration-none">
                                     <div class="card product-card">
                                         <img src="{{ Storage::url($product->image) }}" alt="{{ $product->name }}"
-                                            class="card-img-top border-bottom">
+                                            class="card-img-top" style="width: 100%; height: 200px;">
                                         <div class="card-body">
                                             <div class="fw-bold">{{ $product->name }}</div>
                                             <div class="hstack">

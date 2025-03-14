@@ -6,7 +6,7 @@
                 {{ session('success') }}
             </div>
         @endif
-        <div class="d-flex justify-content-between mb-2">
+        <div class="d-flex justify-content-between mb-3">
             <form class="d-flex gap-2" method="get">
                 <input type="text" class="form-control w-auto" placeholder="Cari order" name="search"
                     value="{{ request()->search }}">
@@ -22,6 +22,8 @@
             <table class="table m-0">
                 <thead>
                     <tr>
+                        <th>#</th>
+                        <th>Date</th>
                         <th>Customer</th>
                         <th>Payment</th>
                         <th>Total</th>
@@ -32,6 +34,8 @@
                 <tbody>
                     @forelse ($orders as $order)
                         <tr>
+                            <td>{{ $order->id }}</td>
+                            <td>{{ $order->created_at->format('d/m/y') }}</td>
                             <td>{{ $order->customer }}</td>
                             <td>{{ number_format($order->payment) }}</td>
                             <td>{{ number_format($order->total) }}</td>

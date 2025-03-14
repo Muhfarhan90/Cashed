@@ -33,7 +33,7 @@
                 </thead>
                 <tbody>
                     @forelse ($products as $product)
-                        <tr>
+                        <tr class="align-middle">
                             <td><img src="{{ Storage::url($product->image) }}" alt="{{ $product->name }}"
                                     class="w-thumbnail img-thumbnail">
                             </td>

@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use Illuminate\Support\Facades\Auth;
 class AuthController extends Controller
 {
     public function index()
@@ -18,7 +18,7 @@ class AuthController extends Controller
             'password' => 'required',
         ]);
 
-        if (auth()->attempt($request->only(['email', 'password']))) {
+        if (Auth::attempt($request->only(['email', 'password']))) {
             $request->session()->regenerate();
             return redirect('/');
         }

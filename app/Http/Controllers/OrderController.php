@@ -10,9 +10,13 @@ use Illuminate\Http\Request;
 
 class OrderController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        $orders = Order::all();
+        $query = Order::query();
+        if ($request->search) {
+            $query->where('customer', 'like', "%$request->search%");
+        }
+        $orders = $query->get();
 
         return view('order.index', ['orders' => $orders,]);
     }
